@@ -19,7 +19,7 @@ bool InitStack(SqStack &S){
     return true;
 }   //初始化栈
 
-char Posh(SqStack &S, SElemType e){
+char Push(SqStack &S, SElemType e){
     if(S.top - S.base >= S.stacksize){
         S.base = (SElemType *)realloc(S.base, (S.stacksize + STACKINCREMENT)*sizeof(SElemType));
         if(!S.base) return false;
@@ -56,7 +56,7 @@ int main(){
     char e;
     while(scanf("%c", &c) != EOF){
         if(c == '(' || c == '[' || c == '{'){
-            Posh(S, c);
+            Push(S, c);
         }
         else if(c == ')' || c == ']' || c == '}'){
             if(GetTop(S, e) && PMatch(e, c)){
