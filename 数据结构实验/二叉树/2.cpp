@@ -6,7 +6,7 @@ using namespace std;
 struct Node{
     string data;
     Node *lchild, *rchild;
-};
+};      //二叉树的结点
 
 Node* create(string tree, int &i){
     Node *root = NULL;
@@ -22,13 +22,13 @@ Node* create(string tree, int &i){
         root->rchild = create(tree, i);
     }
     return root;   
-}
+}       //创建二叉树
 
 void levelOrder(Node *root){
     if(root == NULL){
         return;
     }
-    queue<Node*> q;
+    queue<Node*> q;     
     q.push(root);
     while(!q.empty()){
         Node *now = q.front();
@@ -41,7 +41,7 @@ void levelOrder(Node *root){
             q.push(now->rchild);
         }
     }
-}
+}       //层序遍历
 
 int main(){
     string tree;
