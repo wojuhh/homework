@@ -40,7 +40,10 @@ void InsertBST(BiTNode *&T,int key){
         }     
     }
     else{
-        cout<<"The key is already in the tree."<<endl;
+        BiTNode *s=(BiTNode *)malloc(sizeof(BiTNode));
+        s->data=key;
+        s->lchild=s->rchild=NULL;
+         p->lchild=s;
     }
 }
 
@@ -64,3 +67,9 @@ int main(){
     inOrder(T);
     return 0;
 }
+
+
+
+
+
+
